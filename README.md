@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/yarencheng/eos-contract-template/tree/master.svg?style=svg)](https://circleci.com/gh/yarencheng/eos-contract-template/tree/master)
+
 # eos-contract-template
 
 A project template of the EOS contract.
