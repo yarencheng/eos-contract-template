@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: yarencheng/eoscdt-docker:1.5.0
+    steps:
+      - checkout
+      - run:
+          name: build
+          command: ./clean_build.sh
+      - run:
+          name: test
+          command: ./test.sh
