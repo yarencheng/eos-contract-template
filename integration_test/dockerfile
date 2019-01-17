@@ -1,0 +1,17 @@
+FROM ubuntu:18.04
+
+RUN apt-get update && \
+    apt-get install -y wget
+
+RUN wget -q https://github.com/eosio/eos/releases/download/v1.5.0/eosio_1.5.0-1-ubuntu-18.04_amd64.deb && \
+    apt install -y ./eosio_1.5.0-1-ubuntu-18.04_amd64.deb && \
+    rm ./eosio_1.5.0-1-ubuntu-18.04_amd64.deb
+
+
+
+RUN apt-get install -y curl
+RUN apt-get install -y jq
+
+# COPY conntract_test.sh /user/bin/conntract_test.sh
+# RUN chmod +x /user/bin/conntract_test.sh
+# ENTRYPOINT [ "conntract_test.sh" ]

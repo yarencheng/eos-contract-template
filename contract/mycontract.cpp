@@ -14,4 +14,5 @@ void MyContract::hi(name user)
 {
     auto hw = helloWorld.get_or_create(_self);
     print("Message: ", hw.echo(user.to_string()));
+    helloWorld.set(hw, _self);
 }
