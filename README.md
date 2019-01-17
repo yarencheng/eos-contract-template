@@ -69,7 +69,7 @@ Here will execute unit test in the `./test` folder. See [Google Test](https://gi
 ***TODO***
 
 ```
-docker-compose -f integration_test/docker-compose.yaml up --exit-code-from=conntract_test --abort-on-container-exit --force-recreate
+docker-compose -f integration_test/docker-compose.yaml up --exit-code-from=conntract_test --abort-on-container-exit --force-recreate --build
 ```
 
 ## TODO list
