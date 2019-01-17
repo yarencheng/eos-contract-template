@@ -71,3 +71,9 @@ Here will execute unit test in the `./test` folder. See [Google Test](https://gi
 ```
 docker-compose -f integration_test/docker-compose.yaml up --exit-code-from=conntract_test --abort-on-container-exit --force-recreate
 ```
+
+## TODO list
+
+- [x] Test with googletest
+- [x] Build *.WASM file
+- [ ] integration test flow
