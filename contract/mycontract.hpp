@@ -17,6 +17,6 @@ class MyContract : public eosio::contract
     eosio::singleton<"helloworld"_n, mylib::HelloWorld> helloWorld;
 };
 
-EOSIO_DISPATCH(MyContract, (hi))
-
 } // namespace mycontract
+
+EOSIO_DISPATCH(mycontract::MyContract, (hi))

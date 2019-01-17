@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.10)
 
 project (mycontract VERSION 0.0.1)
 
-set(EOSIO_WASM_OLD_BEHAVIOR "Off")
+# set(EOSIO_WASM_OLD_BEHAVIOR "Off")
 find_package(eosio.cdt)
 
 ##
@@ -27,7 +27,7 @@ list(REMOVE_ITEM SOURCE_CPP "mycontract.cpp")
 
 ### Generate the wasm and abi
 ### *.cpp with contract inside should be the latest of list
-add_contract( mycontract mycontract ${SOURCE_CPP} "mycontract.cpp" )
+add_contract( MyContract MyContract ${SOURCE_CPP} "mycontract.cpp" )
 
 ### add the path to where the ricardian contracts/clauses are found
-target_compile_options( mycontract.wasm PUBLIC -R${CMAKE_CURRENT_SOURCE_DIR} )
+target_compile_options( MyContract.wasm PUBLIC -R${CMAKE_CURRENT_SOURCE_DIR} )
