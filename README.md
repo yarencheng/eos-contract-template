@@ -2,6 +2,14 @@
 
 A project template of the EOS contract.
 
+## Requirements
+
+* cmake: 3.10+
+* GNU: Make 4.1+
+* g++: 7+
+* eos.cdt: 1.5.0
+* eos node: 1.5.0
+
 ## Directories & Files
 
 * Stander C++ sources
