@@ -11,3 +11,39 @@ jobs:
       - run:
           name: test
           command: ./test.sh
+      - persist_to_workspace:
+          root: ./build/contract/
+          paths:
+            - MyContract.abi
+            - MyContract.wasm
+  integration-test:
+    machine: true
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ./integration_test
+      - run:
+          name: Install Docker Compose
+          command: |
+            curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+            chmod +x ~/docker-compose
+            sudo mv ~/docker-compose /usr/local/bin/docker-compose
+      - run: docker-compose --version
+      - run:
+          name:
+          command: >
+            docker-compose \
+              --file integration_test/docker-compose.yaml \
+              up \
+              --exit-code-from=conntract_test \
+              --abort-on-container-exit \
+              --force-recreate \
+              --build
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - integration-test:
+          requires:
+            - build
