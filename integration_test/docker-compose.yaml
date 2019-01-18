@@ -27,8 +27,6 @@ services:
       - "CMD"
       - "curl"
       - "http://localhost/v1/chain/get_info"
-    volumes:
-    - ./../:/root/src:ro
     command:
     - bash
     - -c
@@ -55,13 +53,14 @@ services:
     - nodeos
     - keosd
     volumes:
-    - ./../:/root/src:ro
-    stdin_open: true
-    tty: true
+    - ./../:/root/src
     depends_on:
     - nodeos
     - keosd
-    working_dir: /root
+    working_dir: /root/src/integration_test
     command:
     - bash
-    - /root/src/integration_test/conntract_test.sh
+    - -c
+    - >
+      npm install --save-dev &&
+      npm test
